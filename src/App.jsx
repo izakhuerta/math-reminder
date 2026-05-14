@@ -191,12 +191,21 @@ export default function App() {
 
             <div>
               <p className="font-semibold mb-2">🔢 Preguntas</p>
-              <input
-                type="number"
-                value={numQ}
-                onChange={(e) => setNumQ(Number(e.target.value))}
-                className="w-full p-3 rounded-2xl bg-gray-100 text-center font-bold"
-              />
+
+<input
+  type="number"
+  min="1"
+  max="50"
+  value={numQ}
+  onChange={(e) => {
+    const value = Number(e.target.value);
+
+    if (value >= 1 && value <= 50) {
+      setNumQ(value);
+    }
+  }}
+  className="w-full p-3 rounded-2xl bg-gray-100 text-center font-bold"
+/>
             </div>
 
             <button
