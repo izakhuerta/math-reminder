@@ -72,7 +72,6 @@ export default function App() {
   const courses = ["Aritmética", "Álgebra", "Geometría", "Trigonometría"];
   const difficulties = ["Fácil", "Media", "Difícil"];
 
-  // Load saved data
   useEffect(() => {
     const savedPoints = Number(localStorage.getItem("points") || 0);
     const savedStreak = Number(localStorage.getItem("streak") || 0);
@@ -81,17 +80,6 @@ export default function App() {
     setPoints(savedPoints);
     setStreak(savedStreak);
     setLastPlayed(savedLast);
-
-    // streak logic
-    const today = todayString();
-    if (savedLast === today) {
-      // already played today
-    } else if (savedLast) {
-      const last = new Date(savedLast);
-      const diff = Math.floor((new Date(today) - last) / (1000 * 60 * 60 * 24));
-      if (diff === 1) setStreak(savedStreak + 1);
-      else if (diff > 1) setStreak(0);
-    }
   }, []);
 
   function saveProgress(newPoints, newStreak) {
@@ -113,12 +101,7 @@ export default function App() {
     const userAnswer = parseFloat(input);
     const correct = Math.abs(userAnswer - q.answer) < 0.01;
 
-    let newPoints = points;
-
-    if (correct) newPoints += 10;
-    else newPoints += 2; // participación
-
-    setPoints(newPoints);
+    let newPoints = points + (correct ? 10 : 2);
 
     const today = todayString();
     let newStreak = streak;
@@ -128,8 +111,8 @@ export default function App() {
       setLastPlayed(today);
     }
 
+    setPoints(newPoints);
     setStreak(newStreak);
-
     saveProgress(newPoints, newStreak);
 
     setHistory([
@@ -155,28 +138,35 @@ export default function App() {
     setHistory([]);
   }
 
-  return (
-    <div className="min-h-screen bg-zinc-950 text-white flex items-center justify-center p-4">
-      <div className="w-full max-w-sm bg-zinc-900 rounded-2xl p-5 shadow-xl">
+  const bg = "min-h-screen bg-gradient-to-br from-purple-500 via-pink-500 to-yellow-400 flex items-center justify-center p-4";
 
-        {/* TOP STATS */}
-        <div className="flex justify-between text-xs text-zinc-400 mb-3">
-          <span>⭐ Puntos: {points}</span>
-          <span>🔥 Racha: {streak}</span>
+  return (
+    <div className={bg}>
+      <div className="w-full max-w-sm bg-white/90 backdrop-blur-xl rounded-3xl p-5 shadow-2xl">
+
+        {/* HEADER */}
+        <div className="text-center mb-3">
+          <h1 className="text-2xl font-extrabold text-purple-700">📚 Math Express</h1>
+          <p className="text-sm text-gray-600">Entrena rápido y mejora cada día</p>
+        </div>
+
+        {/* STATS */}
+        <div className="flex justify-between mb-4 text-sm font-semibold">
+          <span className="bg-yellow-200 px-3 py-1 rounded-full">⭐ {points} pts</span>
+          <span className="bg-orange-200 px-3 py-1 rounded-full">🔥 {streak} días</span>
         </div>
 
         {stage === "setup" && (
           <div className="space-y-4">
-            <h1 className="text-xl font-bold text-center">Math Express 🚀</h1>
 
             <div>
-              <p className="text-sm mb-2">Curso</p>
+              <p className="font-semibold mb-2">📘 Curso</p>
               <div className="grid grid-cols-2 gap-2">
                 {courses.map((c) => (
                   <button
                     key={c}
                     onClick={() => setCourse(c)}
-                    className={`p-2 rounded-xl text-sm ${course === c ? "bg-blue-500" : "bg-zinc-800"}`}
+                    className={`p-3 rounded-2xl font-bold shadow transition active:scale-95 ${course === c ? "bg-purple-600 text-white" : "bg-gray-100"}`}
                   >
                     {c}
                   </button>
@@ -185,13 +175,13 @@ export default function App() {
             </div>
 
             <div>
-              <p className="text-sm mb-2">Dificultad</p>
+              <p className="font-semibold mb-2">🎯 Dificultad</p>
               <div className="grid grid-cols-3 gap-2">
                 {difficulties.map((d) => (
                   <button
                     key={d}
                     onClick={() => setDifficulty(d)}
-                    className={`p-2 rounded-xl text-sm ${difficulty === d ? "bg-green-500" : "bg-zinc-800"}`}
+                    className={`p-3 rounded-2xl font-bold shadow ${difficulty === d ? "bg-green-500 text-white" : "bg-gray-100"}`}
                   >
                     {d}
                   </button>
@@ -200,63 +190,70 @@ export default function App() {
             </div>
 
             <div>
-              <p className="text-sm mb-2">Número de preguntas</p>
+              <p className="font-semibold mb-2">🔢 Preguntas</p>
               <input
                 type="number"
                 value={numQ}
                 onChange={(e) => setNumQ(Number(e.target.value))}
-                className="w-full p-2 rounded-xl bg-zinc-800"
-                min={1}
-                max={20}
+                className="w-full p-3 rounded-2xl bg-gray-100 text-center font-bold"
               />
             </div>
 
-            <button onClick={start} className="w-full bg-white text-black py-2 rounded-xl">
-              Empezar
+            <button
+              onClick={start}
+              className="w-full bg-gradient-to-r from-purple-600 to-pink-500 text-white font-bold py-3 rounded-2xl shadow-lg active:scale-95"
+            >
+              🚀 Empezar
             </button>
           </div>
         )}
 
         {stage === "quiz" && (
-          <div className="space-y-4">
-            <h2 className="text-lg font-bold text-center">Pregunta {current + 1}</h2>
+          <div className="space-y-4 text-center">
+            <h2 className="text-lg font-bold">Pregunta {current + 1}</h2>
 
-            <div className="bg-zinc-800 p-4 rounded-xl text-center">
+            <div className="bg-purple-100 p-5 rounded-2xl text-xl font-bold">
               {questions[current]?.question}
             </div>
 
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              className="w-full p-2 rounded-xl bg-zinc-800"
+              className="w-full p-3 rounded-2xl bg-gray-100 text-center font-bold"
               placeholder="Tu respuesta"
             />
 
-            <button onClick={submit} className="w-full bg-blue-500 py-2 rounded-xl">
-              Siguiente
+            <button
+              onClick={submit}
+              className="w-full bg-blue-500 text-white py-3 rounded-2xl font-bold shadow-lg active:scale-95"
+            >
+              Siguiente ➡
             </button>
           </div>
         )}
 
         {stage === "result" && (
-          <div className="space-y-4">
-            <h2 className="text-lg font-bold text-center">Historial</h2>
+          <div className="space-y-3">
+            <h2 className="text-center font-bold text-lg">📊 Historial</h2>
 
             <div className="max-h-60 overflow-auto space-y-2">
               {history.map((h, i) => (
-                <div key={i} className="p-2 bg-zinc-800 rounded-xl text-sm">
-                  <p>{h.q}</p>
-                  <p>Tu respuesta: {h.userAnswer}</p>
+                <div key={i} className="p-3 rounded-2xl bg-gray-100 text-sm">
+                  <p className="font-bold">{h.q}</p>
+                  <p>Tu: {h.userAnswer}</p>
                   <p>Correcta: {h.correctAnswer}</p>
-                  <p className={h.correct ? "text-green-400" : "text-red-400"}>
+                  <p className={h.correct ? "text-green-600 font-bold" : "text-red-500 font-bold"}>
                     {h.correct ? "✔ Bien" : "✘ Mal"}
                   </p>
                 </div>
               ))}
             </div>
 
-            <button onClick={reset} className="w-full bg-red-500 py-2 rounded-xl">
-              Reiniciar
+            <button
+              onClick={reset}
+              className="w-full bg-red-500 text-white py-3 rounded-2xl font-bold"
+            >
+              Reiniciar 🔁
             </button>
           </div>
         )}
