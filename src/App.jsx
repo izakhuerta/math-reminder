@@ -109,7 +109,8 @@ function generateQuestion(course, difficulty) {
         answer: table[angle],
       };
     }
-
+  }
+}
    
   
     
@@ -169,7 +170,7 @@ export default function App() {
     "Aritmética",
     "Álgebra",
     "Geometría",
-    "Trigonometría",
+     "Trigonometría",
   ];
 
   const difficulties = [
