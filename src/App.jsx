@@ -110,19 +110,7 @@ function generateQuestion(course, difficulty) {
       };
     }
 
-    case "tic": {
-      const a = rand(min, max);
-      const b = rand(min, max);
-      return {
-        question: `Promedio de ${a} y ${b}`,
-        answer: (a + b) / 2
-      }
-    }
-
-     default:
-       return { question: "1 + 1", answer: 2 };
-  }
-} 
+   
   
     
      
@@ -182,7 +170,6 @@ export default function App() {
     "Álgebra",
     "Geometría",
     "Trigonometría",
-    "tic"
   ];
 
   const difficulties = [
