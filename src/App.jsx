@@ -92,17 +92,9 @@ function generateQuestion(course, difficulty) {
     }
 
     case "Trigonometría": {
-      const a = rand(min, max) ;
-      const b = rand(min, max) ;
-      return {
-        question: `Promedio de ${a} y  ${b}`,
-        answer: a+b/2
-      };
-    }
-
-      const angle =
-        angles[rand(0, angles.length - 1)];
-
+      const angles = [30, 45, 60];
+      const angle = angles[rand(0, angles.length - 1)];
+      
       const table = {
         30: 0.5,
         45: Number(
@@ -112,7 +104,6 @@ function generateQuestion(course, difficulty) {
           (Math.sqrt(3) / 2).toFixed(2)
         ),
       };
-
       return {
         question: `sin(${angle}°) aprox.`,
         answer: table[angle],
@@ -121,13 +112,21 @@ function generateQuestion(course, difficulty) {
 
     case "tic": {
       const a = rand(min, max);
-    default:
+      const b = rand(min, max);
       return {
-        question: "1 + 1",
-        answer: 2,
-      };
+        question: `Promedio de ${a} y ${b}`,
+        answer: (a + b) / 2
+      }
+    }
+
+     default:
+       return { question: "1 + 1", answer: 2 };
   }
-}
+} 
+  
+    
+     
+
 
 export default function App() {
   const [stage, setStage] =
