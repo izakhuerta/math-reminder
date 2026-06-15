@@ -109,7 +109,15 @@ function generateQuestion(course, difficulty) {
         answer: table[angle],
       };
     }
-  }
+
+
+    case "CURSO TIC": {
+      const a = rand(0,3) ,
+
+      return {
+        question: "numeros entre 0 y 3",
+        answer: a 
+    }
 }
    
   
@@ -171,12 +179,14 @@ export default function App() {
     "Álgebra",
     "Geometría",
      "Trigonometría",
+    "CURSO TIC",
   ];
 
   const difficulties = [
     "Fácil",
     "Media",
     "Difícil",
+    "TIC",
   ];
 
   useEffect(() => {
@@ -427,15 +437,15 @@ export default function App() {
 
   return (
     <div className={bg}>
-      <div className="w-full max-w-sm bg-white/90 backdrop-blur-xl rounded-3xl p-5 shadow-2xl">
+      <div className="w-full max-w-sm bg-black/90 backdrop-blur-xl rounded-3xl p-5 shadow-2xl">
         {/* HEADER */}
         <div className="text-center mb-3">
-          <h1 className="text-3xl font-extrabold text-purple-700">
-            📚 Math Express
+          <h1 className="text-3xl font-extrabold text-red-600">
+            📚 Math TIC
           </h1>
 
           <p className="text-sm text-gray-600">
-            Mejora tu velocidad y precisión
+            Hola profe como está
           </p>
         </div>
 
