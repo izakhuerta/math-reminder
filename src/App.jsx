@@ -119,7 +119,7 @@ function generateQuestion(course, difficulty) {
       };
     }
   }
-      
+}
    
   
     
@@ -435,10 +435,10 @@ export default function App() {
 
   return (
     <div className={bg}>
-      <div className="w-full max-w-sm bg-purple/90 backdrop-blur-xl rounded-3xl p-5 shadow-2xl">
+      <div className="w-full max-w-sm bg-black/90 backdrop-blur-xl rounded-3xl p-5 shadow-2xl">
         {/* HEADER */}
         <div className="text-center mb-3">
-          <h1 className="text-3xl font-extrabold text-green-1000">
+          <h1 className="text-3xl font-extrabold text-green-900">
             📚 Math TIC
           </h1>
 
