@@ -187,6 +187,7 @@ export default function App() {
     "Fácil",
     "Media",
     "Difícil",
+    "UTP"
   ];
 
   useEffect(() => {
