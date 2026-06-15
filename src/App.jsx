@@ -109,12 +109,6 @@ function generateQuestion(course, difficulty) {
         answer: table[angle],
       };
     }
-
-    case "TIC":
-      return {
-      question: "cuanto es 5+5",
-      answer: 10,
-  };
   }
 }
    
@@ -177,7 +171,6 @@ export default function App() {
     "Álgebra",
     "Geometría",
      "Trigonometría",
-    "TIC",
   ];
 
   const difficulties = [
@@ -241,7 +234,7 @@ export default function App() {
     );
 
     localStorage.setItem(
-      "lastPlayed", "2026-01-15"
+      "lastPlayed",
       todayString()
     );
   }
@@ -256,6 +249,13 @@ export default function App() {
         course,
         difficulty
       );
+
+      if (!used.has(q.question)) {
+        used.add(q.question);
+
+        qs.push(q);
+      }
+    }
 
     return qs;
   }
