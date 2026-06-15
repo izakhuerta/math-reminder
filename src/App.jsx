@@ -264,7 +264,6 @@ export default function App() {
       );
 
         qs.push(q);
-      }
     }
 
     return qs;
