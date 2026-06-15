@@ -27,6 +27,9 @@ function getDifficultyRange(difficulty) {
     case "Difícil":
       return [50, 200];
 
+    case "UTP":
+      return [1,10]
+
     default:
       return [1, 10];
   }
@@ -109,6 +112,13 @@ function generateQuestion(course, difficulty) {
         answer: table[angle],
       };
     }
+
+    case "TIC": {
+      return {
+        question: "cuanto es 5+5" ,
+        answer: 10,
+      }
+    }
   }
 }
    
@@ -170,13 +180,15 @@ export default function App() {
     "Aritmética",
     "Álgebra",
     "Geometría",
-     "Trigonometría",
+    "Trigonometría",
+    "TIC",
   ];
 
   const difficulties = [
     "Fácil",
     "Media",
     "Difícil",
+   "TIC",
   ];
 
   useEffect(() => {
@@ -249,10 +261,6 @@ export default function App() {
         course,
         difficulty
       );
-
-      if (!used.has(q.question)) {
-        used.add(q.question);
-
         qs.push(q);
       }
     }
@@ -305,7 +313,7 @@ export default function App() {
     let earned = 0;
 
     if (correct) {
-      earned = 10 + combo * 2;
+      earned = 9999 + combo * 2;
 
       setCombo((prev) => {
         const newCombo = prev + 1;
@@ -427,11 +435,11 @@ export default function App() {
 
   return (
     <div className={bg}>
-      <div className="w-full max-w-sm bg-white/90 backdrop-blur-xl rounded-3xl p-5 shadow-2xl">
+      <div className="w-full max-w-sm bg-blue/90 backdrop-blur-xl rounded-3xl p-5 shadow-2xl">
         {/* HEADER */}
         <div className="text-center mb-3">
-          <h1 className="text-3xl font-extrabold text-purple-700">
-            📚 Math Express
+          <h1 className="text-3xl font-extrabold text-red-700">
+            📚 Math UTP
           </h1>
 
           <p className="text-sm text-gray-600">
