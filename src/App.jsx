@@ -27,6 +27,9 @@ function getDifficultyRange(difficulty) {
     case "Difícil":
       return [50, 200];
 
+    case "TIC"
+      return [1, 2];
+
     default:
       return [1, 10];
   }
@@ -112,12 +115,11 @@ function generateQuestion(course, difficulty) {
 
 
     case "CURSO TIC": {
-      const a = rand(0,3) ,
 
       return {
         question: "numeros entre 0 y 3",
-        answer: a 
-    }
+        answer: 1 "y" 2  
+    };
 }
    
   
