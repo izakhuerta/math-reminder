@@ -254,7 +254,6 @@ export default function App() {
   }
 
   function createQuestions() {
-    const used = new Set();
 
     const qs = [];
 
@@ -264,7 +263,6 @@ export default function App() {
         difficulty
       );
 
-     
         qs.push(q);
       }
     }
