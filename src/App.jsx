@@ -27,9 +27,6 @@ function getDifficultyRange(difficulty) {
     case "Difícil":
       return [50, 200];
 
-    case "TIC":
-      return [1, 10];
-
     default:
       return [1, 10];
   }
@@ -112,16 +109,7 @@ function generateQuestion(course, difficulty) {
         answer: table[angle],
       };
     }
-
-
-    case "CURSO TIC": {
-
-      return {
-        question: "CUANTO ES 5+5",
-        answer: 10,
-      };
-    }
-  }  
+  }
 }
    
   
@@ -183,14 +171,12 @@ export default function App() {
     "Álgebra",
     "Geometría",
      "Trigonometría",
-    "CURSO TIC",
   ];
 
   const difficulties = [
     "Fácil",
     "Media",
     "Difícil",
-    "TIC",
   ];
 
   useEffect(() => {
@@ -254,6 +240,7 @@ export default function App() {
   }
 
   function createQuestions() {
+    const used = new Set();
 
     const qs = [];
 
@@ -263,7 +250,11 @@ export default function App() {
         difficulty
       );
 
+      if (!used.has(q.question)) {
+        used.add(q.question);
+
         qs.push(q);
+      }
     }
 
     return qs;
@@ -439,8 +430,8 @@ export default function App() {
       <div className="w-full max-w-sm bg-white/90 backdrop-blur-xl rounded-3xl p-5 shadow-2xl">
         {/* HEADER */}
         <div className="text-center mb-3">
-          <h1 className="text-3xl font-extrabold text-purple-1000">
-            📚 Math UTP
+          <h1 className="text-3xl font-extrabold text-purple-700">
+            📚 Math Express
           </h1>
 
           <p className="text-sm text-gray-600">
