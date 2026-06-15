@@ -27,7 +27,7 @@ function getDifficultyRange(difficulty) {
     case "Difícil":
       return [50, 200];
 
-    case "UTP":
+    case "TIC":
       return [1,10]
 
     default:
@@ -263,7 +263,6 @@ export default function App() {
       );
         qs.push(q);
       }
-    }
 
     return qs;
   }
@@ -431,14 +430,14 @@ export default function App() {
   }, [percentage]);
 
   const bg =
-    "min-h-screen bg-gradient-to-br from-purple-500 via-pink-500 to-yellow-400 flex items-center justify-center p-4";
+    "min-h-screen bg-gradient-to-br from-cyan-500 via-pink-500 to-green-500/80 flex items-center justify-center p-4";
 
   return (
     <div className={bg}>
-      <div className="w-full max-w-sm bg-blue/90 backdrop-blur-xl rounded-3xl p-5 shadow-2xl">
+      <div className="w-full max-w-sm bg-blue-500/90 backdrop-blur-xl rounded-3xl p-5 shadow-2xl">
         {/* HEADER */}
         <div className="text-center mb-3">
-          <h1 className="text-3xl font-extrabold text-red-700">
+          <h1 className="text-3xl font-extrabold text-red-700/100">
             📚 Math UTP
           </h1>
 
