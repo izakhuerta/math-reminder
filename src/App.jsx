@@ -121,7 +121,7 @@ function generateQuestion(course, difficulty) {
         answer: 10,
       };
     }
-    };
+  }  
 }
    
   
