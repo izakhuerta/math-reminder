@@ -181,7 +181,8 @@ export default function App() {
 
   useEffect(() => {
     const savedPoints = Number(
-      localStorage.getItem("points") || 0
+      localStorage.getItem("points") || 67
+  
     );
 
     const savedStreak = Number(
