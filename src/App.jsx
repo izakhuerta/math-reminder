@@ -94,7 +94,7 @@ function generateQuestion(course, difficulty) {
     case "Trigonometría": {
       const angles = [30, 45, 60];
       const angle = angles[rand(0, angles.length - 1)];
-
+      
       const table = {
         30: 0.5,
         45: Number(
@@ -109,17 +109,67 @@ function generateQuestion(course, difficulty) {
         answer: table[angle],
       };
     }
-
   }
 }
+   
+  
+    
+     
 
 
+export default function App() {
+  const [stage, setStage] =
+    useState("setup");
 
-@@ -169,562 +170,562 @@
+  const [course, setCourse] =
+    useState("Aritmética");
+
+  const [difficulty, setDifficulty] =
+    useState("Fácil");
+
+  const [numQ, setNumQ] =
+    useState(5);
+
+  const [mode, setMode] =
+    useState("Normal");
+
+  const [timeLeft, setTimeLeft] =
+    useState(10);
+
+  const [questions, setQuestions] =
+    useState([]);
+
+  const [current, setCurrent] =
+    useState(0);
+
+  const [input, setInput] =
+    useState("");
+
+  const [history, setHistory] =
+    useState([]);
+
+  const [points, setPoints] =
+    useState(0);
+
+  const [streak, setStreak] =
+    useState(0);
+
+  const [lastPlayed, setLastPlayed] =
+    useState(null);
+
+  const [combo, setCombo] =
+    useState(0);
+
+  const [bestCombo, setBestCombo] =
+    useState(0);
+
+  const [lives, setLives] =
+    useState(3);
+
+  const courses = [
     "Aritmética",
     "Álgebra",
     "Geometría",
-    "Trigonometría",
      "Trigonometría",
   ];
 
@@ -679,3 +729,4 @@ function generateQuestion(course, difficulty) {
       </div>
     </div>
   );
+}
