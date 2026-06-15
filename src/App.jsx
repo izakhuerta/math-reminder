@@ -110,13 +110,12 @@ function generateQuestion(course, difficulty) {
       };
     }
 
-    case "TIC"
+    case "TIC":
       return {
       question: "cuanto es 5+5",
-      asnwer: 10,
+      answer: 10,
   };
   }
-}
 }
    
   
@@ -257,13 +256,6 @@ export default function App() {
         course,
         difficulty
       );
-
-      if (!used.has(q.question)) {
-        used.add(q.question);
-
-        qs.push(q);
-      }
-    }
 
     return qs;
   }
