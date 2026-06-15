@@ -27,8 +27,8 @@ function getDifficultyRange(difficulty) {
     case "Difícil":
       return [50, 200];
 
-    case "TIC"
-      return [1, 2];
+    case "TIC":
+      return [1, 10];
 
     default:
       return [1, 10];
@@ -117,8 +117,10 @@ function generateQuestion(course, difficulty) {
     case "CURSO TIC": {
 
       return {
-        question: "numeros entre 0 y 3",
-        answer: 1 "y" 2  
+        question: "CUANTO ES 5+5",
+        answer: 10,
+      };
+    }
     };
 }
    
