@@ -264,9 +264,7 @@ export default function App() {
         difficulty
       );
 
-      if (!used.has(q.question)) {
-        used.add(q.question);
-
+     
         qs.push(q);
       }
     }
