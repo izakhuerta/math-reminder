@@ -246,7 +246,6 @@ export default function App() {
 
     localStorage.setItem(
       "lastPlayed",
-      "2026-01-15"
       todayString()
     );
   }
