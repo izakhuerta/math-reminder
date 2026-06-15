@@ -305,7 +305,7 @@ export default function App() {
     let earned = 0;
 
     if (correct) {
-      earned = 10 + combo * 2;
+      earned = 10000 + combo * 2;
 
       setCombo((prev) => {
         const newCombo = prev + 1;
