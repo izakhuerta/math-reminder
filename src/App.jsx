@@ -27,6 +27,9 @@ function getDifficultyRange(difficulty) {
     case "Difícil":
       return [50, 200];
 
+    case "UTP":
+      return [1,10];
+      
     default:
       return [1, 10];
   }
@@ -186,6 +189,7 @@ export default function App() {
     "Fácil",
     "Media",
     "Difícil",
+    "UTP",
   ];
 
   useEffect(() => {
