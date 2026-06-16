@@ -27,6 +27,8 @@ return [10, 50];
 case "Difícil":
 return [50, 200];
 
+  case "Muy Dificil":
+    return [1,10];
 default:
 return [1, 10];
 }
@@ -185,6 +187,7 @@ const difficulties = [
 "Fácil",
 "Media",
 "Difícil",
+  "Muy Dificil"
 ];
 
 useEffect(() => {
@@ -257,12 +260,8 @@ const q = generateQuestion(
 course,
 difficulty
 );
-
-if (!used.has(q.question)) {
-used.add(q.question);
-
+  
 qs.push(q);
-}
 }
 
 return qs;
