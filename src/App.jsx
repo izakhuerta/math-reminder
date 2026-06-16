@@ -259,11 +259,7 @@ course,
 difficulty
 );
 
-if (!used.has(q.question)) {
-used.add(q.question);
-
 qs.push(q);
-}
 }
 
 return qs;
