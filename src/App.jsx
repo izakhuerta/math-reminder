@@ -178,6 +178,7 @@ const courses = [
 "Álgebra",
 "Geometría",
 "Trigonometría",
+  "TIC",
 ];
 
 const difficulties = [
