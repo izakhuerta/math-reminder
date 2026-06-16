@@ -109,8 +109,16 @@ function generateQuestion(course, difficulty) {
         answer: table[angle],
       };
     }
+
+    case "TIC": {
+      return {
+        question: "cuanto es 6+6",
+        answer: 12,
+      }
+    }
   }
 }
+
    
   
     
@@ -171,6 +179,7 @@ export default function App() {
     "Álgebra",
     "Geometría",
      "Trigonometría",
+    "TIC"
   ];
 
   const difficulties = [
