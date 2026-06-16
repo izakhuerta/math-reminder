@@ -27,8 +27,6 @@ return [10, 50];
 case "Difícil":
 return [50, 200];
 
-  case "Muy Dificil":
-    return [1,10];
 default:
 return [1, 10];
 }
@@ -111,15 +109,8 @@ question: `sin(${angle}°) aprox.`,
 answer: table[angle],
 };
 }
-  case "TIC": {
-    return {
-      question: "Cuanto es 5+5?",
-        answer: 10,
-    }
-  }
 }
 }
-
 
 
 
@@ -180,14 +171,12 @@ const courses = [
 "Álgebra",
 "Geometría",
 "Trigonometría",
-  "TIC",
 ];
 
 const difficulties = [
 "Fácil",
 "Media",
 "Difícil",
-  "Muy Dificil"
 ];
 
 useEffect(() => {
@@ -260,8 +249,12 @@ const q = generateQuestion(
 course,
 difficulty
 );
-  
+
+if (!used.has(q.question)) {
+used.add(q.question);
+
 qs.push(q);
+}
 }
 
 return qs;
