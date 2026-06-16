@@ -428,15 +428,15 @@ return "D";
 }, [percentage]);
 
 const bg =
-"min-h-screen bg-gradient-to-br from-purple-500 via-pink-500 to-yellow-400 flex items-center justify-center p-4";
+"min-h-screen bg-gradient-to-br from-pink-500/40 via-emerald-500/40 to-cyan-400 flex items-center justify-center p-4";
 
 return (
 <div className={bg}>
-<div className="w-full max-w-sm bg-white/90 backdrop-blur-xl rounded-3xl p-5 shadow-2xl">
+<div className="w-full max-w-sm bg-red-950/90 backdrop-blur-xl rounded-3xl p-5 shadow-2xl">
 {/* HEADER */}
 <div className="text-center mb-3">
 <h1 className="text-3xl font-extrabold text-purple-700">
-📚 Math Express
+📚 Matemáticas TIC
 </h1>
 
 <p className="text-sm text-gray-600">
