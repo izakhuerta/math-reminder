@@ -111,12 +111,12 @@ answer: table[angle],
 }
   case "TIC": {
     return {
-      question: "Cuanto es 5+5?",,
+      question: "Cuanto es 5+5?",
         answer: 10,
     }
   }
 }
-}
+
 
 
 
