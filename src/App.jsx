@@ -432,7 +432,7 @@ const bg =
 
 return (
 <div className={bg}>
-<div className="w-full max-w-sm bg-red-950/90 backdrop-blur-xl rounded-3xl p-5 shadow-2xl">
+<div className="w-full max-w-sm bg-white-950/90 backdrop-blur-xl rounded-3xl p-5 shadow-2xl">
 {/* HEADER */}
 <div className="text-center mb-3">
 <h1 className="text-3xl font-extrabold text-purple-700">
