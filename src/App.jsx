@@ -109,16 +109,8 @@ question: `sin(${angle}°) aprox.`,
 answer: table[angle],
 };
 }
-
-  case "TIC": {
-    return {
-      question: "cuanto es 5+5",
-      answer: 10,
-    }
-  }
 }
 }
-
 
 
 
@@ -179,7 +171,6 @@ const courses = [
 "Álgebra",
 "Geometría",
 "Trigonometría",
-  "TIC"
 ];
 
 const difficulties = [
@@ -259,7 +250,11 @@ course,
 difficulty
 );
 
+if (!used.has(q.question)) {
+used.add(q.question);
+
 qs.push(q);
+}
 }
 
 return qs;
@@ -428,15 +423,15 @@ return "D";
 }, [percentage]);
 
 const bg =
-"min-h-screen bg-gradient-to-br from-pink-500/40 via-emerald-500/40 to-cyan-400 flex items-center justify-center p-4";
+"min-h-screen bg-gradient-to-br from-purple-500 via-pink-500 to-yellow-400 flex items-center justify-center p-4";
 
 return (
 <div className={bg}>
-<div className="w-full max-w-sm bg-white-950/90 backdrop-blur-xl rounded-3xl p-5 shadow-2xl">
+<div className="w-full max-w-sm bg-white/90 backdrop-blur-xl rounded-3xl p-5 shadow-2xl">
 {/* HEADER */}
 <div className="text-center mb-3">
 <h1 className="text-3xl font-extrabold text-purple-700">
-📚 Matemáticas TIC
+📚 Math Express
 </h1>
 
 <p className="text-sm text-gray-600">
