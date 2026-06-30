@@ -164,7 +164,7 @@ export default function App() {
     useState(0);
 
   const [lives, setLives] =
-    useState(3);
+    useState(5);
 
   const courses = [
     "Aritmética",
