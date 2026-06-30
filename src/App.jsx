@@ -109,9 +109,15 @@ question: `sin(${angle}°) aprox.`,
 answer: table[angle],
 };
 }
-}
-}
 
+  case "TIC": {
+    return {
+      question: "cuanto es 5+5?",
+      answer: 10,
+    }
+  }
+}
+}
 
 
 
@@ -171,6 +177,7 @@ const courses = [
 "Álgebra",
 "Geometría",
 "Trigonometría",
+"TIC",
 ];
 
 const difficulties = [
